@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
 .array-container {
     position: absolute;
     left: 100px;
@@ -7,4 +8,7 @@
     width: 10px;
     display: inline-block;
     margin: 0 1px;
+}
+h1{
+    font-family: "Dancing Script", cursive;
 }
