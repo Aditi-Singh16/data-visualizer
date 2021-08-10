@@ -7,12 +7,11 @@ export default function SortingVisualizer() {
     const PRIMARY_COLOR = 'turquoise';
     const SECONDARY_COLOR = 'red';
     const ANIMATION_SPEED_MS = 5;
-    const [myarray, setmyarray] = useState()
+    const [myarray, setmyarray] = useState([])
     const [finarr, setfinarr] = useState([])
     const [showinput, setshowinput] = useState(false)
     const [len, setlen] = useState(0)
-    var [x, setx] = useState(0)
-    //const animation = []
+
 
     const handlesizesubmit = (e) => {
         e.preventDefault()
@@ -22,6 +21,7 @@ export default function SortingVisualizer() {
                 parseInt(item)
             )
         })
+        console.log('myarray is', myarray.length)
         setfinarr(arr)
         setshowinput(true)
     }
@@ -130,6 +130,7 @@ export default function SortingVisualizer() {
             arr.push(val)
         }
         console.log(arr);
+
         setfinarr(arr)
         setshowinput(true)
     }
@@ -337,16 +338,24 @@ export default function SortingVisualizer() {
 
     return (
         <div>
-            <form>
-                <input type="text" placeholder="Enter array e.g 1,2,3,4" onChange={(e) => setmyarray(e.target.value)}></input>
-                <input type="text" placeholder="Enter len" onChange={(e) => setlen(e.target.value)}></input>
-                <button onClick={(e) => handlesizesubmit(e)}>Submit</button>
+            <h1>Data Visualizer</h1>
+            <form style={{ width: "50%", margin: "10px auto" }} className="row">
+                <div className="col">
+                    <input type="text" className="form-control" placeholder="Enter array e.g [1,2,3,4]" onChange={(e) => setmyarray(e.target.value)}></input>
+                </div>
+                <div className="col">
+                    <input type="text" className="form-control" placeholder="Enter len" onChange={(e) => setlen(e.target.value)}></input>
+                </div>
+                <div className="col">
+                    <button className="btn btn-outline-info" style={{ margin: "5px 5px 5px 0px" }} onClick={(e) => handlesizesubmit(e)}>Submit</button>
+                </div>
+
             </form>
-            <button onClick={() => { MergeSortAlgo() }}>Merge Sort</button>
-            <button onClick={() => { BubbleSortAlgo() }}>Bubble Sort</button>
-            <button onClick={() => { QuickSortAlgo() }}>Quick Sort</button>
-            <button onClick={() => { InsertionSortAlgo() }}>Insertion Sort</button>
-            <button onClick={GenerateRand}>Generate a random array</button>
+            <button className="btn btn-outline-primary" style={{ margin: "5px" }} onClick={() => { MergeSortAlgo() }}>Merge Sort</button>
+            <button className="btn btn-outline-primary" style={{ margin: "5px" }} onClick={() => { BubbleSortAlgo() }}>Bubble Sort</button>
+            <button className="btn btn-outline-primary" style={{ margin: "5px" }} onClick={() => { QuickSortAlgo() }}>Quick Sort</button>
+            <button className="btn btn-outline-primary" style={{ margin: "5px" }} onClick={() => { InsertionSortAlgo() }}>Insertion Sort</button>
+            <button className="btn btn-outline-primary" style={{ margin: "5px" }} onClick={GenerateRand}>Generate a random array</button>
             {
                 showinput ?
                     <div className="array-container">
